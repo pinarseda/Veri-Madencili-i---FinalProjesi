@@ -48,13 +48,15 @@ if ((df["score"] > 4.20) & (df["score"] <= 6.19)).all():
 if (df["score"] > 6.20).all():
     print ("6.20   DUSUK RISK   10.00")
     print (df["airline"])
-down_side = df["airline"]
-left_side = df["total"]
-plt.plot(down_side,left_side)
+plt.figure(figsize=(20,10))
+plt.subplot(2,2,1)   
+plt.plot(df.airline,df.total,color="r") 
+plt.xlabel("Havayolu")
+plt.ylabel("Kaza Sayisi")
 plt.title("Sirketlerin Toplam Kaza Tablosu")
-plt.show()
-down_side = df["airline"]
-left_side = df["score"]
-plt.plot(down_side,left_side)
-plt.title("Sirketlerin Score Tablosu")
-plt.show()
+plt.subplot(2,2,2)
+plt.plot(df.airline,df.score,color="blue")
+plt.xlabel("Havayolu")
+plt.ylabel("Skor")
+plt.title("Sirketlerin Skor Tablosu")
+plt.show()    
