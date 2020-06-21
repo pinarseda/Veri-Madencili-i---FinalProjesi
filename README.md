@@ -1,5 +1,5 @@
 # Veri-Madencili-i---FinalProjesi
-KONU: Firma(Vestel) Servis Ağ ve Kapasite KontroLü
+KONU: Kaza Geçmişlerine Göre Havayolu Tercihi 
 
 
 GRUP ÜYELERİ: BORA MERT
