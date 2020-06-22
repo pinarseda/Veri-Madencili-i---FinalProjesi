@@ -35,20 +35,15 @@ if x==y:
 if b==d:
     print ("Musteriler icin" , b ,"sirketini kesinlikle tercih etmemek dogru karar olacaktir.")
 print ("")
-print ("Sirketlerin risk skorlari asagida gosterilmistir. Buna gore yuksek risk grubunda olan sirketler kara listede sayilmaktadir. Musterilerin bu risk grubunda ki sirketlerden kaçınması gerekir.")
+print ("Sirketlerin IASA(International Aviation Safety Assessment) Program'ına göre risk skorlari asagida gosterilmistir. Buna gore yuksek risk grubunda olan sirketler kara listede sayilmaktadir. Musterilerin bu risk grubunda ki sirketlerden kaçınması gerekir.")
 print ("")
 df["total"] = df["incidents_85_99"] + df["fatal_accidents_85_99"] + df["fatalities_85_99"] + df["incidents_00_14"] + df["fatal_accidents_00_14"] + df["fatalities_00_14"]
-df["score"] = df["avail_seat_km_per_week"] / df["total"]
-if  ((df["score"] > 0) & (df["score"] <= 4.19)).all():
-    print ("0.00   YUKSEK RISK   4.19")
-    print (df["score"])  
-if ((df["score"] > 4.20) & (df["score"] <= 6.19)).all():
-    print ("4.20   ORTA RISK   6.19")
-    print (df["airline"])
-if (df["score"] > 6.20).all():
-    print ("6.20   DUSUK RISK   10.00")
-    print (df["airline"])
-plt.figure(figsize=(20,10))
+df["score"] = (df["avail_seat_km_per_week"]*780) / df["total"]
+print("YUKSEK RISK 0.00-4.19     ORTA RISK 4.20-6.19     DUSUK RISK 6.20-10.00")
+print ("")
+n = pd.concat([df.airline, df.score], axis = 1)
+print(n)
+plt.figure(figsize=(10,5))
 plt.subplot(2,2,1)   
 plt.plot(df.airline,df.total,color="r") 
 plt.xlabel("Havayolu")
