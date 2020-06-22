@@ -35,7 +35,7 @@ if x==y:
 if b==d:
     print ("Musteriler icin" , b ,"sirketini kesinlikle tercih etmemek dogru karar olacaktir.")
 print ("")
-print ("Sirketlerin IASA(International Aviation Safety Assessment) Program'ına göre risk skorlari asagida gosterilmistir. Buna gore yuksek risk grubunda olan sirketler kara listede sayilmaktadir. Musterilerin bu risk grubunda ki sirketlerden kaçınması gerekir.")
+print ("Sirketlerin IASA(International Aviation Safety Assessment) Program'ına gore risk skorlari asagida gosterilmistir. Buna gore yuksek risk grubunda olan sirketler kara listede sayilmaktadir. Musterilerin bu risk grubunda ki sirketlerden kaçınması gerekir.")
 print ("")
 df["total"] = df["incidents_85_99"] + df["fatal_accidents_85_99"] + df["fatalities_85_99"] + df["incidents_00_14"] + df["fatal_accidents_00_14"] + df["fatalities_00_14"]
 df["score"] = (df["avail_seat_km_per_week"]*780) / df["total"]
